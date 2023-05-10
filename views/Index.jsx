@@ -1,10 +1,10 @@
 const React = require('react');
 
 const myContainer = {
+    backgorundColor: '#262626',
     color: '#262626',
-    backgroundImage: 'url(https://www.pockettactics.com/wp-content/sites/pockettactics/2023/01/Pok%C3%A9mon-wallpapers-6.jpg)',
+    backgroundImage: 'url(https://wallpapercave.com/wp/wp2098819.jpg)',
     width: '100vw',
-    height: '100vh',
     backgroundSize :'cover',
     marginTop: '-10px', 
     marginLeft: '-20px',
@@ -17,8 +17,8 @@ const myContainer = {
 
 
 const title = {
-    textAlign: 'center',
-    padding: '10px',
+    marginTop: '130px',
+    padding: '10px 35px',
     fontSize: '2.5rem',
     backgroundColor: '#ffffff',
 }
@@ -34,6 +34,10 @@ const content = {
 
 const link = {
     color: '#CD565C',
+}
+
+const styleImage = {
+    width: '100px',
 }
 
 const Index = ({pokemon}) => {
@@ -58,7 +62,8 @@ const capitalizePokemonName = pokemon.map((character) => ({
                         <a style={link} href={`/pokemon/${i}`}>{character.name}
                         </a>
                         <br></br> 
-                        <b>Image:</b> {character.img}. 
+                        <b>Photo </b>
+                        <br></br> <img style={styleImage} src={character.img + ".jpg"} />
                     </li>
                     );
                 })}

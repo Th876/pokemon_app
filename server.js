@@ -34,8 +34,14 @@ app.get('/pokemon', (req, res) => {
 
 // Setting up show route
 app.get('/pokemon/:id', (req, res) => {
-    res.send(req.params.id);
+    // res.send(req.params.id);
+    res.render('../views/Show', {
+        pokemon: pokemon[req.params.id] //there 
+    }
+    )
 });
+
+
 
 
 // set your app to listen to the port and include a console.log(), so that you can tell when your server is running
