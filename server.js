@@ -1,5 +1,6 @@
 // require express
 const express = require('express');
+const pokemon = require('./models/pokemon.js');
 
 // set express()to a variable
 const app = express();
@@ -20,13 +21,15 @@ app.set('view engine', 'jsx');
 app.engine('jsx', require('jsx-view-engine').createEngine
 ());
 
-
+// Routes here
 // include a get route /that will res.send('Welcome to the Pokemon App!');so that when you got to localhost:3000, you will see Welcome to the Pokemon App!
 app.get('/', (req, res) => {
     res.send('Welcome to the Pokemon App!');
 });
 
-
+app.get('/pokemon', (req, res) => {
+    res.send(pokemon);
+})
 
 
 
