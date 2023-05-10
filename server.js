@@ -1,11 +1,12 @@
 // require express
 const express = require('express');
+
 const pokemon = require('./models/pokemon.js');
 
 // set express()to a variable
 const app = express();
 
-//set a variable of portto 3000
+//set a variable of port to 3000
 const port = 3000;
 
 // Index : Show all the things!
@@ -28,13 +29,14 @@ app.get('/', (req, res) => {
 });
 
 app.get('/pokemon', (req, res) => {
-    res.send(pokemon);
-})
+    res.render('../views/Index', { pokemon: pokemon });
+});
 
 
 
 // set your app to listen to the port and include a console.log(), so that you can tell when your server is running
 
-app.listen(3000,() => {
-    console.log('Server is listening');
+app.listen(port, () => {
+    console.log(`listening on port, $
+{port}`);
 });
