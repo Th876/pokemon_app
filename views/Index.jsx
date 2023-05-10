@@ -1,24 +1,40 @@
 const React = require('react');
-const pokemon = require('../models/pokemon');
+
 const myContainer = {
-    color: '#e5989b',
-    backgroundColor: '#262626',
+    color: '#262626',
+    backgroundImage: 'url(https://www.pockettactics.com/wp-content/sites/pockettactics/2023/01/Pok%C3%A9mon-wallpapers-6.jpg)',
     width: '100vw',
     height: '100vh',
-    marginTop: '-30px', 
+    backgroundSize :'cover',
+    marginTop: '-10px', 
     marginLeft: '-20px',
+    marginBottom: '-130px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
     };
 
 
 const title = {
     textAlign: 'center',
-    paddingTop: '30px'
+    padding: '10px',
+    fontSize: '2.5rem',
+    backgroundColor: '#ffffff',
 }
 
 const content = {
-    color: '#ffe5d9',
+    color: '#f6fff8',
+    backgroundColor: '#262626',
+    marginLeft: '30px',
+    width: '400px',
+    padding: '45px 45px 45px 50px',
+    fontSize: '1.1rem',
 }
 
+const link = {
+    color: '#CD565C',
+}
 
 const Index = ({pokemon}) => {
     // map through pokemon list and create a new array with capitalized names
@@ -34,11 +50,13 @@ const capitalizePokemonName = pokemon.map((character) => ({
             
             <ul style={content}>
                 
-                {capitalizePokemonName.map((character) => {
+                {capitalizePokemonName.map((character, i) => {
                     return(
-                    <li key={character.name} style={{marginBottom: 
+                    <li key={i} style={{marginBottom: 
                     '10px'}}>
-                        <b>Name: </b> {character.name}
+                        <b>Name: </b> 
+                        <a style={link} href={`/pokemon/${i}`}>{character.name}
+                        </a>
                         <br></br> 
                         <b>Image:</b> {character.img}. 
                     </li>

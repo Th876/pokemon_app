@@ -32,7 +32,7 @@ app.get('/pokemon', (req, res) => {
     res.render('../views/Index', { pokemon: pokemon });
 });
 
-// Setting up your show route
+// Setting up show route
 app.get('/pokemon/:id', (req, res) => {
     res.send(req.params.id);
 });
