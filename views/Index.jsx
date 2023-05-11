@@ -13,11 +13,11 @@ const myContainer = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: '-20px',
     };
 
 
 const title = {
-    marginTop: '130px',
     padding: '10px 35px',
     fontSize: '2.5rem',
     backgroundColor: '#ffffff',
@@ -32,8 +32,24 @@ const content = {
     fontSize: '1.1rem',
 }
 
-const link = {
+const namelink = {
     color: '#CD565C',
+}
+
+const nav = {
+    marginTop: '50px',
+    marginBottom: '60px',
+}
+const link = {
+    textDecoration: 'none',
+    color: '#CD565C',
+    fontSize: '1.2rem',
+    backgroundColor: '#ffffff',
+    padding: '10px 15px',
+    borderRadius: '8px',
+    fontWeight: 'bold', 
+    marginLeft: '55px',
+    boxShadow: '0px 5px 15px rgba(0, 0, 0, 0.35)', 
 }
 
 const styleImage = {
@@ -42,11 +58,6 @@ const styleImage = {
 
 const Index = ({pokemon}) => {
     // map through pokemon list and create a new array with capitalized names
-const capitalizePokemonName = pokemon.map((character) => ({
-    ...character,
-    name: character.name.charAt(0).toUpperCase() + character.name.slice(1),
-
-}));
 // In return, map through the new capitalized names array and display them, along with their image links
     return(
         <div style={myContainer}>
@@ -54,12 +65,13 @@ const capitalizePokemonName = pokemon.map((character) => ({
             
             <ul style={content}>
                 
-                {capitalizePokemonName.map((character, i) => {
+                {pokemon.map((character, i) => {
                     return(
                     <li key={i} style={{marginBottom: 
                     '10px'}}>
+
                         <b>Name: </b> 
-                        <a style={link} href={`/pokemon/${i}`}>{character.name}
+                        <a style={namelink}href={`/pokemon/${character._id}`}>{character.name.charAt(0).toUpperCase() + character.name.slice(1)}
                         </a>
                         <br></br> 
                         <b>Photo </b>
@@ -68,6 +80,10 @@ const capitalizePokemonName = pokemon.map((character) => ({
                     );
                 })}
             </ul>    
+
+            <nav style={nav}>
+                <a style={link} href="/pokemon/new">Create a New Pokemon</a>
+            </nav>
         </div>
     )
 }
