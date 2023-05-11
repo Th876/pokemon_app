@@ -1,7 +1,8 @@
 const React = require('react')
  const showContainer = {
-    backgroundImage: 'url(https://c4.wallpaperflare.com/wallpaper/725/791/792/pokemon-pikachu-wallpaper-preview.jpg)',
+    backgroundImage: 'url(https://cdn.wallpapersafari.com/98/7/Iu9XxP.jpg)',
     width: '100vw',
+    height: '100vh',
     backgroundSize :'cover',
     marginTop: '-10px', 
     marginLeft: '-20px',
@@ -10,7 +11,6 @@ const React = require('react')
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100vh',
  }
 
  const heading = {
@@ -21,10 +21,9 @@ const React = require('react')
  }
 
  const subheading = {
-    padding: '7px 30px',
     fontSize: '1.5rem',
-    color: '#000000',
-    backgroundColor: '#ffffff',
+    color: '#ffffff',
+
  }
 
  const buttonContainer = {
@@ -36,22 +35,23 @@ const React = require('react')
     textDecoration: 'none',
     color: '#CD565C',
     fontSize: '1.5rem',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#f4f3ee',
     padding: '7px 15px',
     borderRadius: '8px',
+    boxShadow: '0px 5px 15px rgba(0, 0, 0, 0.35)',
+    fontWeight: 'bold',
 }
 
 const Show = ({ pokemon }) => {
   return (
   <div style={showContainer}>
     <h1 style={heading}>Gotta Catch 'Em All</h1>
-    <h2 style={subheading}>Name: {pokemon.name}</h2>
+    <h2 style={subheading}>Name: {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h2>
     <b style={subheading}>Photo </b> <br>
     </br><img src={pokemon.img + ".jpg"} />  
     
     <div style={buttonContainer}>
             <a style={link} href="/pokemon">Back</a>
-
     </div>
 </div>
       );
