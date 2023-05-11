@@ -44,9 +44,6 @@ app.engine('jsx', require('jsx-view-engine').createEngine
 ());
 
 
-// Data
-// const Pokemon = require('./models/pokemon.js');
-
 // Routes here
 // include a get route /that will res.send('Welcome to the Pokemon App!');so that when you got to localhost:3000, you will see Welcome to the Pokemon App!
 app.get('/', (req, res) => {
@@ -65,9 +62,6 @@ app.get('/pokemon/new', (req, res) => {
     res.render('../views/New');
 });
 
-// app.get('/pokemon', (req, res) => {
-    // res.render('../views/Index', { pokemon: pokemon });
-// });
 
 app.post('/pokemon', (req, res)=>{
     console.log('creating a pokemon');
@@ -77,14 +71,6 @@ app.post('/pokemon', (req, res)=>{
     });
 });
 
-// Setting up show route
-// app.get('/pokemon/:id', (req, res) => {
-    // res.send(req.params.id);
-    // res.render('../views/Show', {
-        // pokemon: pokemon[req.params.id] //there 
-    // }
-    // )
-// });
 
 app.get('/pokemon/:id', (req, res)=>{
     Pokemon.findById(req.params.id, (err, foundPokemon)=>{
